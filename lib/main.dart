@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quize_app_space_hack/home_screen.dart';
+import 'package:quize_app_space_hack/screens/home_screen.dart';
 void main(){
   runApp(MyApp());
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quize_app_space_hack/components/action_button.dart';
 import 'package:quize_app_space_hack/components/gradient_box.dart';
 import 'package:quize_app_space_hack/models/question.dart';
-import 'package:quize_app_space_hack/quize_screen.dart';
+import 'package:quize_app_space_hack/screens/quize_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -18,19 +19,17 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Space Tour',style: TextStyle(color: Colors.white),),
+              Text('Space Tour',style: TextStyle(color: Colors.white,fontSize: 10.0),),
               SizedBox(height: 40.0,),
-              SizedBox(
-                height:50.0 ,
-                width: 200.0,
-                child: ElevatedButton(
-                  onPressed: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=>QuizScreen(totalTime: 10, questions:question)));
-                  },
-                  child: Text('Start'),
-
-                ),
-              )
+              ActionButton(
+                onTap:(){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(
+                    totalTime:10 ,
+                    questions:question,
+                  )));
+                } ,
+                title: 'Start',
+              ),
             ],
           ),
         )
@@ -38,3 +37,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
