@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 class Question {
@@ -46,12 +47,12 @@ class Question {
     );
   }
 
- /* factory Question.fromQueryDocumentSnapshot(QueryDocumentSnapshot snapshot) {
+  factory Question.fromQueryDocumentSnapshot(QueryDocumentSnapshot snapshot) {
     final data = snapshot.data() as Map<String, dynamic>;
     final id = snapshot.id;
     data['id'] = id;
     return Question.fromMap(data);
-  }*/
+  }
 
   String toJson() => json.encode(toMap());
 
@@ -84,6 +85,7 @@ class Question {
 }
 
 
+/*
 List<Question> question = [
   Question(
       id: '1',
@@ -96,14 +98,14 @@ List<Question> question = [
     id: '2',
     question: 'What is the question',
     answers: ['5','6','7','8'],
-    correctAnswer: '2',
+    correctAnswer: '8',
   ),
 
   Question(
     id: '3',
     question: 'What is the question',
     answers: ['9','10','11','12'],
-    correctAnswer: '2',
+    correctAnswer: '10',
   ),
 
   Question(
@@ -120,3 +122,4 @@ List<Question> question = [
     correctAnswer: '2',
   )
 ];
+*/

@@ -102,7 +102,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               
                               Future.delayed(Duration(microseconds: 200),(){
 
-                                if (_currentIndex == question.length - 1) {
+                                if (_currentIndex == widget.questions.length - 1) {
                                   pushResultScreen(context);
                                   return;
                                 }
@@ -136,7 +136,7 @@ class _QuizScreenState extends State<QuizScreen> {
       MaterialPageRoute(
           builder: (context) =>
               ResultScreen(
-                totalQuestions: widget.questions.length,
+                questions: widget.questions,
                 score: _score,
               )
       ),

@@ -4,10 +4,10 @@ import 'package:quize_app_space_hack/components/gradient_box.dart';
 import 'package:quize_app_space_hack/models/question.dart';
 import 'package:quize_app_space_hack/screens/quize_screen.dart';
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({Key? key,required this.score,required this.totalQuestions}) : super(key: key);
+  const ResultScreen({Key? key,required this.score,required this.questions}) : super(key: key);
 
   final int score;
-  final int totalQuestions;
+  final List<Question> questions;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,11 @@ class ResultScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Results: $score/$totalQuestions',style: TextStyle(color: Colors.white,fontSize: 25.0,fontWeight: FontWeight.bold),),
+                Text('Results: $score/${questions.length}',style: TextStyle(color: Colors.white,fontSize: 25.0,fontWeight: FontWeight.bold),),
                 SizedBox(height: 40.0,),
                 ActionButton(title: 'PlayAgain',
                     onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(totalTime: 10, questions: question)));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(totalTime: 10, questions: questions)));
 
                     }
 
