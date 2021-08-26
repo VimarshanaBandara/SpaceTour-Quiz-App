@@ -37,15 +37,46 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   final questions = questionDocs.map((e) => Question.fromQueryDocumentSnapshot(e)).toList();
 
-                 return  ActionButton(
-                    onTap:(){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(
-                        totalTime:10 ,
-                        questions:questions,
-                      )));
-                    } ,
-                    title: 'Start',
-                  );
+
+
+                 return StreamBuilder<QuerySnapshot>(
+                   stream: FirebaseFirestore.instance.collection('config').snapshots(),
+                   builder:(context , snapshot){
+
+                    if(!snapshot.hasData){
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+
+                    final configDoc = snapshot.data!.docs.first.data() as Map<String , dynamic>;
+                    final totalTime = configDoc['key'];
+
+                    return  Column(
+                      children: [
+                        ActionButton(
+                          onTap:(){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(
+                              totalTime:totalTime ,
+                              questions:questions,
+                            )));
+                          } ,
+                          title: 'Start',
+                        ),
+                        SizedBox(height: 40.0,),
+                        Text('Total Questions : ${questions.length} ',style: TextStyle(color: Colors.white , fontSize: 25.0),)
+
+                      ],
+                    );
+
+
+
+                 } ,);
+
+
+
+
+
 
 
                 }

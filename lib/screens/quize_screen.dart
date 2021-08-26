@@ -4,10 +4,12 @@ import 'package:quize_app_space_hack/components/gradient_box.dart';
 import 'package:quize_app_space_hack/models/question.dart';
 import 'package:quize_app_space_hack/screens/result_screen.dart';
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({Key? key , required this.totalTime , required this.questions}) : super(key: key);
+  const QuizScreen({Key? key , required this.totalTime , required this.questions }) : super(key: key);
 
   final int totalTime;
   final List<Question> questions;
+
+
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -78,7 +80,10 @@ class _QuizScreenState extends State<QuizScreen> {
                   Text('Questions',style: TextStyle(fontSize: 20.0,color: Colors.white),),
                   SizedBox(height: 10.0,),
                   Text(currentQuestion.question,style: TextStyle(fontSize: 18.0 , color: Colors.white,fontWeight: FontWeight.bold),),
-                  
+
+                  //Spacer(),
+
+
                   Expanded(
                     child:ListView.builder(
                       itemBuilder: (context , index){
@@ -137,6 +142,7 @@ class _QuizScreenState extends State<QuizScreen> {
           builder: (context) =>
               ResultScreen(
                 questions: widget.questions,
+                totalTime: widget.totalTime,
                 score: _score,
               )
       ),

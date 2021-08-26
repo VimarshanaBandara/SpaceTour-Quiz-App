@@ -4,11 +4,11 @@ import 'package:quize_app_space_hack/components/gradient_box.dart';
 import 'package:quize_app_space_hack/models/question.dart';
 import 'package:quize_app_space_hack/screens/quize_screen.dart';
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({Key? key,required this.score,required this.questions}) : super(key: key);
+  const ResultScreen({Key? key,required this.score,required this.questions,required this.totalTime,}) : super(key: key);
 
   final int score;
   final List<Question> questions;
-
+  final int totalTime;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class ResultScreen extends StatelessWidget {
                 SizedBox(height: 40.0,),
                 ActionButton(title: 'PlayAgain',
                     onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(totalTime: 10, questions: questions)));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QuizScreen(totalTime: totalTime, questions: questions)));
 
                     }
 
