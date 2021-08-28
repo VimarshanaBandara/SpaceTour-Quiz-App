@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:quize_app_space_hack/components/action_button.dart';
 import 'package:quize_app_space_hack/components/gradient_box.dart';
+import 'package:quize_app_space_hack/components/rank_auth_button.dart';
 import 'package:quize_app_space_hack/models/question.dart';
 import 'package:quize_app_space_hack/screens/quize_screen.dart';
 class HomeScreen extends StatefulWidget {
@@ -74,18 +75,12 @@ class _HomeScreenState extends State<HomeScreen> {
                  } ,);
 
 
+                 }
 
+                 ,),
 
-
-
-
-                }
-
-
-
-              ,),
-
-
+                SizedBox(height: 70.0,),
+              RankAuthButton(),
 
             ],
           ),
