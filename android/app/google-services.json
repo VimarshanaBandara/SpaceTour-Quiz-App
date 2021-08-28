@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "53877325844-i9ogtqe8s2mt9ioara2bcop68lapdpfm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vmm.quize_app_space_hack",
+            "certificate_hash": "929f19cc4adf6ad5b5ed0ede15537e9ab5b4c10e"
+          }
+        },
+        {
           "client_id": "53877325844-or2pcogsoph0j43ccq8tr3eg22dim43p.apps.googleusercontent.com",
           "client_type": 3
         }

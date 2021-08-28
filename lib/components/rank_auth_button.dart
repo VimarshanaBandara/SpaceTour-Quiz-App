@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quize_app_space_hack/components/action_button.dart';
 import 'package:quize_app_space_hack/services/auth_service.dart';
@@ -11,12 +12,12 @@ class RankAuthButton extends StatefulWidget {
 
 class _RankAuthButtonState extends State<RankAuthButton> {
 
-  bool isLoggedId = false;
+  bool _isLoggedIn = false;
 
 
   @override
   Widget build(BuildContext context) {
-    if(isLoggedId) return ActionButton(
+    if(_isLoggedIn) return ActionButton(
       title: 'Ranking',
       onTap: (){},
     );
@@ -29,7 +30,24 @@ class _RankAuthButtonState extends State<RankAuthButton> {
           AuthService.signInWithGoogle();
         }
     );
+  }
+
+  @override
+  void initState(){
+
+    super.initState();
+    FirebaseAuth.instance.userChanges().listen((user) {
+      if(user == null){
+        setState(() {
+          _isLoggedIn = false;
+        });
+        return;
+      }
+      setState(() {
+        _isLoggedIn = true;
+      });
 
 
+    });
   }
 }
