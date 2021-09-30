@@ -8,12 +8,12 @@ class GradientBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.teal.shade800 , Colors.teal.shade200],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
 
-        )
+        image: DecorationImage(
+          image: AssetImage('images/bg2.jpg'),
+          fit: BoxFit.cover,
+          colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
+        ),
       ),
       child: child,
     );

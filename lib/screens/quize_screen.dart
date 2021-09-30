@@ -104,8 +104,8 @@ class _QuizScreenState extends State<QuizScreen> {
                               }
 
 
-                              
-                              Future.delayed(Duration(microseconds: 200),(){
+
+                              Future.delayed(Duration(microseconds: 100),(){
 
                                 if (_currentIndex == widget.questions.length - 1) {
                                   pushResultScreen(context);
@@ -119,15 +119,15 @@ class _QuizScreenState extends State<QuizScreen> {
 
 
                               });
-                              
-                              
+
+
                           },
                         );
                       },
                       itemCount:currentQuestion.answers.length,
                     ),
                   )
-                  
+
 
                 ],
               ),
@@ -169,7 +169,7 @@ class AnswerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: cardColor,
+      color: cardColor.withOpacity(0.6),
       child: ListTile(
         onTap: () => onTap(),
         title: Text(
